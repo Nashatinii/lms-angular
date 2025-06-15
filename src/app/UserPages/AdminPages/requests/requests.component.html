@@ -1,0 +1,26 @@
+<body>
+  <app-navbar></app-navbar>
+  <div class="container">
+      <div class="combo">
+          <p class="title" *ngIf="waitUsers.length > 0">Pending Requests</p>
+          <p class="title" *ngIf="waitUsers.length == 0">No Users</p>
+      </div>
+      
+      <div *ngIf="waitUsers.length > 0" class="users">
+          <div *ngFor="let user of waitUsers">
+              <div class="userCard">
+                <p class="name">{{ user.name }}</p>
+                <p>{{ user.email }}</p>
+                <p>{{ user.role }}</p>
+                <button (click)="onClickApprove(user)">Approve</button>
+                <button (click)="onClickReject(user.email)">Reject</button>
+              </div>
+          </div>
+      </div>
+  </div>
+</body>
+
+
+<!-- <footer>
+    <p>Where education meets convenience and innovation.</p>
+   </footer> -->

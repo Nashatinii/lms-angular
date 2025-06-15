@@ -1,0 +1,115 @@
+*{
+    overflow: hidden;
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif; 
+    overflow-y: hidden;
+    overflow-x: hidden;
+}
+body{
+    background-color: #fff !important;  
+    height: 97vh;
+}
+.container {
+  display: flex; 
+  height: 90vh;
+}
+
+.right {
+  flex: 1;
+  /* transform: scale(1.1);  */
+  display: grid;
+  place-items: center; 
+  /* height: 90vh; */
+  /* overflow-x: hidden; */
+  max-width: 100%;
+}
+
+.right img { /* picture */
+  max-width: 100%;
+}
+
+.logo{ /* Elearn */
+    color : #3149e3;
+}
+
+h1{ /* Login , Elearn*/
+    font-size: 35px;
+}
+
+.label { /* Login */
+    color: #252525;
+    font-weight:bold; 
+}
+
+.logo span{ /* earn */
+    font-weight: lighter;
+}
+
+p{ /* form errors */
+    /* margin-top: -5px; */
+    margin-bottom: 5px;
+    color: #f44336;
+    font-size: 14px;
+    text-align: center;
+}
+h3 , .toSign{ /* welcome , don't have account */
+    color : #6e6e6e;
+    font-size: 16px;
+    font-weight: lighter;
+}
+
+span{ /* sign up */
+    font-weight: bold;
+}
+
+label{ /* email , password */
+    color : #6e6e6e;
+    font-size: 16px;
+    font-weight: lighter;
+}
+
+.left {
+    flex: 1;
+    /* margin-top: 20%; */
+    gap: 20px;
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+form {
+    width: 100%;
+    max-width: 400px; 
+}
+
+#mail , #password{ /* inputs */
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 10px;
+    width: 100%;
+    border: 2px solid #ccc !important; 
+    box-shadow: none !important; 
+    outline: none !important; 
+    border-radius: 10px;
+    color: #333;
+    font-size: 14px;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: #3149e3;
+    border-radius: 10px;
+    color: white;
+    border: none;
+    cursor: pointer;
+    margin-top: 4%;
+}
+
+button:hover {
+    background-color: #2a3cc3;
+}

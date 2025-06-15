@@ -1,0 +1,24 @@
+<body>
+   <app-navbar-ins></app-navbar-ins>
+   <section>
+       <div class="container">
+           <div class="left">
+               <p class="greetings"><span style="color: #333;">Welcome, </span>{{userName | uppercase}}!</p>
+               <p class="line">start creating and managing courses.</p>
+               <div class="buttons">
+                   <button class="st">Manage Assessments</button>
+                   <button class="nd" [routerLink]="'/insCreateCourse'">Create Course</button>
+                </div>
+                <!-- <p class="quote">Where education meets convenience and innovation.</p> -->
+            </div>
+            <div class="right">
+                <div class="square">
+                    <img src="instructor.jpg">
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <p>Where education meets convenience and innovation.</p>
+       </footer>
+</body>

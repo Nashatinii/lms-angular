@@ -1,0 +1,34 @@
+<body>
+  <app-navbar-ins></app-navbar-ins>
+  <div class="container">
+      <div class="combo">
+          <p class="title" *ngIf="instructorCourses.value.length > 0">Current Courses</p>
+          <p class="title" *ngIf="instructorCourses.value.length == 0">No Courses</p>
+          <button type="button" class="createCourse" [routerLink]="'/insCreateCourse'">Create Course</button>
+      </div>
+      
+      <div *ngIf="instructorCourses.value.length > 0; " class="courses">
+          <div *ngFor="let course of (instructorCourses|async)">
+              <div *ngIf="!course.archived" class="courseCard">
+                  <!-- <div class="courseInfo"> -->
+                    <div>
+                        <p class="courseName">{{ course.name }}</p>
+                    </div>
+                    <div>
+                        <button [routerLink]="['/editMaterial',course.name]">Add Materials</button>
+                        <button [routerLink]="['/viewMaterial',course.name]">View Materials</button>
+                    </div>
+                  <!-- </div> -->
+              </div>
+          </div>
+      </div>
+  </div>
+</body>
+
+<!-- <ng-template #noCourses>
+  <p class="noCourses">No courses.</p>
+</ng-template> -->
+
+<!-- <footer>
+    <p>Where education meets convenience and innovation.</p>
+   </footer> -->

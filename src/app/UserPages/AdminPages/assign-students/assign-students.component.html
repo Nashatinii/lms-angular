@@ -1,0 +1,87 @@
+<body>
+  <app-navbar></app-navbar>
+  <div class="container">
+    <div class="container1">
+      <h1 class="title">Assign course to students</h1>
+      <p class="select">Select course and who you would like to assign this course to</p>
+      <div class="inputbox">
+        <form [formGroup]="courseSelection">
+        <select id="courses" formControlName="courseChosed" placeholder="Select Course" (change)="onCourseSelect()" >
+            <option value="" disabled selected>Select Course</option>
+            <option *ngFor="let course of (courses|async)" [ngValue]="course">{{ course.name }}</option>
+        </select>
+        <p 
+        *ngIf="courseSelection.get('courseChosed')?.errors?.['required'] && done"
+        [ngStyle]="{'color': 'red', 'font-size': '15px', 'margin' : '5px'}"
+        >
+          Course is required
+        </p>        
+        </form>
+      </div>
+  
+      <div class="toggle-container">
+        <label class="switch">
+          <!-- Use [disabled] property to disable the toggle in special cases -->
+          <input 
+            type="checkbox" 
+            [(ngModel)]="assignAllStudents" 
+            (change)="toggleAssignAll()" 
+            [disabled]="toggleDisabled" 
+          />
+          <span class="slider round"></span>
+        </label>
+      
+        <div class="toggle-labels">
+          <p class="main-label">Assign all students</p>
+          <!-- Optional: Show a message when the toggle is disabled -->
+          <p *ngIf="showErrorMessage"
+          [ngStyle]="{'color': 'red', 'font-size': '15px'}">
+          You cannot toggle this without selecting course.</p>
+        </div>  
+      </div>
+      
+
+      <!-- <div class="toggle-container">
+        <label class="switch">
+          <input type="checkbox" [(ngModel)]="assignAllStudents" (change)="toggleAssignAll()" />
+          <span class="slider round"></span>
+        </label>
+
+        <div class="toggle-labels">
+          <p class="main-label">Assign all students </p>
+        </div>  
+      </div> -->
+    </div>
+
+    <div class="container2">
+      <div class="user-group-box">
+        <div class="group-box" id="group-left">
+          <h2>Not Enrolled Students</h2>
+          <select id="available-students" size="10" [(ngModel)]="selectedStudents" multiple [ngClass]="{'select-empty': notEnrolledStudents.length === 0}">
+            <option *ngFor="let user of notEnrolledStudents" [value]="user">{{ user }}</option>
+          </select>
+        </div>
+
+        <div class="arrows">
+          <button id="move-to-right" class="move-btn" (click)="moveToEnrolled()">→</button>
+          <button id="move-to-left" class="move-btn" (click)="moveToNotEnrolled()">←</button>
+        </div>
+
+        <div class="group-box" id="group-right">
+          <h2>Enrolled Students</h2>
+          <select id="chosen-students" size="10" [value]="enrolledStudents" [(ngModel)]="selectedStudents" multiple [ngClass]="{'select-empty': enrolledStudents.length === 0}">
+            <option *ngFor="let user of enrolledStudents" [value]="user">{{ user }}</option>
+          </select>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="done">
+      <button id="done-btn" class="done-btn" (click)="finalizeAssignments()">Done</button>
+    </div>
+    <p  *ngIf="enrolled" class="enrolled" style ="color:green; font-size: 20px;">Enrollment completed successfully! 🎉</p>
+
+
+  </div>
+</body>

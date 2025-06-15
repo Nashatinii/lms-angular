@@ -1,0 +1,46 @@
+<body>
+  <app-navbar-ins></app-navbar-ins>
+
+  <section class="submissions-container">
+    <h2 class="title">Received Submissions</h2>
+
+    <div *ngFor="let submission of submissions; let i = index">
+      <div class="submission-card courseItem"  *ngFor="let student of submission.students">
+      <p class="courseName">{{ submission.courseName }}</p>
+      <p>{{ submission.assignmentTitle }}</p>
+
+      <!-- Loop through all students in this submission -->
+        <p class="student-name">{{ student.studentName }}</p>
+        <button class="download-btn">
+          <a href="{{ student.url }}" style="color:white;text-decoration: none;" class="link-text">Open Link</a>
+        </button>
+
+        <div class="grade-section">
+          <!-- Show "Graded" message if the student has a grade -->
+          <span *ngIf="student.grade != -1" class="graded-message">
+            Graded: {{ student.grade }}
+          </span>
+
+          <!-- Show "Give Grade" button if the student does not have a grade -->
+          <button *ngIf="student.grade==-1  && !showGradeInput[i]" 
+                  class="grade-btn" 
+                  (click)="toggleGradeInput(i)">
+            Give Grade
+          </button>
+
+          <!-- Show grade input if it's toggled on -->
+          <div *ngIf="showGradeInput[i]" class="grade-input-container">
+            <input
+              type="text"
+              placeholder="Enter grade"
+              class="grade-input"
+              #gradeInput
+              (keypress)="($event.key >= '0' && $event.key <= '9') ? null : $event.preventDefault()"
+            />
+            <button class="submit-btn" (click)="submitGrade(i, student.studentName, gradeInput.value)">Submit</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</body>

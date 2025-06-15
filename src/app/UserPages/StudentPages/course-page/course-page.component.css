@@ -1,0 +1,142 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', sans-serif;
+  background-color:#f8f9ff;
+  color: #333;
+}
+h2{
+  text-align: center;
+  color: #3149e3;
+  /* margin-bottom: 0px; */
+}
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
+
+/* 
+.form-section {
+  margin-bottom: 20px;
+} */
+
+label {
+  font-weight: bold;
+  color: #3149e3;
+  margin-bottom: 5px;
+  display: block;
+}
+
+.material-type, .material-description {
+  /* margin-left: 20px; */
+  /* font-size: 1rem; */
+  /* margin-top: 5px; */
+  color: #555;
+}
+
+  
+/* Position the checkbox at the top right corner */
+.material-item {
+  /* z-index: 0; */
+  position: relative;
+  padding: 20px;
+  padding-top: 10px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  background-color: #f9f9f9;
+}
+
+/* Styling the done checkbox and label */
+.done-checkbox {
+  position: absolute;
+  top: 50px;
+  right: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.done-checkbox input[type="checkbox"] {
+  transform: scale(1.2);
+  margin-right: 8px;
+}
+
+.done-label {
+  /* font-size: 14px; */
+  font-size: 20px;
+  font-weight: bold;
+  color: #3b3b3b;
+}
+
+/* Hover effect on the checkbox container */
+.done-checkbox input[type="checkbox"]:hover {
+  cursor: pointer;
+}
+
+.material-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.material-item h3 {
+  margin-top: 20px;
+  color: #333;
+}
+
+.material-link {
+  font-weight: bold;
+  color: #007bff;
+  text-decoration: none;
+}
+
+.material-link:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+/* Style for the no materials message */
+.no {
+  font-size: 18px;
+  text-align: center;
+  /* color: #ff4d4d; */
+}
+
+.error{
+  color: red;
+  font-size: 15px;
+}
+
+input{
+  padding: 10px;
+  width: 100%;
+  border: 2px solid #ccc !important; 
+  box-shadow: none !important; 
+  outline: none !important; 
+  border-radius: 10px;
+  color: #333;
+  font-size: 14px;
+  margin-top: 10px;
+
+}
+
+.ass {
+  width: 100%;
+  padding: 10px;
+  /* background: linear-gradient(200deg, #fff0f5, #c7f6fe); */
+  background-color: #3149e3;
+  border-radius: 10px;
+  color: white;
+  border: none;
+  cursor: pointer;
+  margin-top: 2.5%;
+}
+
+.ass:hover {
+  background-color: #2a3cc3;
+}

@@ -1,0 +1,22 @@
+<body>
+    <app-nav-bar-student></app-nav-bar-student>
+    <div class="video-container">
+        <div class="course-title">
+            <p>{{courseName}}</p>
+            <p>{{title}}</p>
+        </div>
+        
+        <iframe 
+        [src]="video" 
+        title="Embedded Video" 
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+        allowfullscreen>
+        </iframe>
+
+      
+        <!-- <div class="video-placeholder">Video will be here...</div> -->
+      </div>
+      <footer>
+        <p>Where education meets convenience and innovation.</p>
+       </footer>
+</body>

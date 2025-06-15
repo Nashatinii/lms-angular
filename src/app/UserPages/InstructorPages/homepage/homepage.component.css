@@ -1,0 +1,92 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+body {
+    background-color: #f8f9ff;
+    color: #333;
+}
+.container{
+    margin: 0% 5% 3.2% 5%;    
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.square{
+    width: 500px;
+    height: 350px;
+    margin: 5%;
+    margin-top: 12%;
+    overflow-y: hidden;
+    /* transform: rotate(5deg);  */
+}
+img{
+    width: 500px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    width: 100%;
+}
+.left{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-self: center;
+}
+.greetings{
+    color:#3149e3;
+    font-size: 60px;
+    font-weight: bold;
+    margin: 0;
+}
+.line{
+    font-size: 25px;
+    margin: 0;
+}
+.buttons{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    justify-content: flex-start;
+}
+.buttons :first-child{
+    background-color: white;
+    color: #3149e3;
+    border: 2px solid #3149e3; 
+    border-radius: 5px;
+    padding: 10px;
+    text-align: center; 
+}
+.buttons :nth-child(2){
+    width : 200px;
+    background-color: #3149e3;
+    color: white;
+    border-color: transparent;
+    border-radius: 5px;
+    padding: 10px;
+}
+.buttons .st:hover{
+    cursor: pointer;
+    background-color: #f0f0f0;
+}
+.buttons .nd:hover{
+    cursor: pointer;
+    background-color: #2a3cc3;
+}
+
+footer {
+    box-shadow: 0px -2px 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    background-color: #3149e3;
+    margin: -8px;
+}
+  
+footer p {
+    color: #fff;
+    margin: 0;
+    font-size: 16px;
+}

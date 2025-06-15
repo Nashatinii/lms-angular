@@ -1,0 +1,12 @@
+<nav class="navbar">
+    <p class="logo">
+      E<span>learn</span>
+    </p>
+    <ul class="navbar-list">
+      <li [routerLink]="'/insHome'" routerLinkActive="active"> Homepage </li>
+      <li [routerLink]="'/insCreateCourse'" routerLinkActive="active">Create Course</li>
+      <li [routerLink]="'/insMyCourse'" routerLinkActive="active">My Courses </li>
+      <li [routerLink]="'/receivedSubmissions'" routerLinkActive="active">Assessments </li>
+    </ul>
+    <p class="logout" (click)="onClickLogOut()">Log out</p>
+</nav> 

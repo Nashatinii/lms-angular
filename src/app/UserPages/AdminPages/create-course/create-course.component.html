@@ -1,0 +1,45 @@
+<body>
+    <app-navbar></app-navbar>
+    <div class="container">
+        <h1>Create a New Course</h1>
+        <h6>Fill in the details below to create a new course</h6>
+        <form [formGroup]="courseForm" (ngSubmit)="onSubmit()">
+            <div class="form-section">
+                <div>
+                    <label for="insName">Instructor Name</label>
+                    <select id="insName" formControlName="insName" placeholder="Select Instructor">
+                        <option value="" disabled selected>Select Instructor</option>
+                        <option *ngFor="let instructor of instructors" [ngValue]="instructor">{{ instructor }}</option>
+                    </select>
+                    <p class="error" *ngIf="courseForm.get('insName')?.errors?.['required'] && submit">Instructor Name is required</p>
+                </div>
+                <div>
+                    <label for="courseName">Course Name</label>
+                    <input type="text" id="courseName" formControlName="courseName" placeholder="Enter Course Name." />
+                    <p class="error" *ngIf="courseForm.get('courseName')?.errors?.['required'] && submit">Course Name is required</p>
+                </div>
+                <div>
+                    <label for="courseId">Course ID</label>
+                    <input type="text" id="courseId" formControlName="courseId" placeholder="Enter Course ID." />
+                    <p class="error" *ngIf="courseForm.get('courseId')?.errors?.['required'] && submit">Course ID is required</p>
+                    <p class="error" *ngIf="courseForm.get('courseId')?.hasError('forbiddenChars') && submit">
+                        Special characters are not allowed in Course ID
+                      </p>
+                </div>
+                <div>
+                <label for="courseDescription">Description</label>
+                <textarea id="courseDescription" formControlName="courseDescription" placeholder="Add course description..." ></textarea>
+                <p class="error" *ngIf="courseForm.get('courseDescription')?.errors?.['required'] && submit">Description is required</p>
+                </div>
+            </div>
+            <div class="button-container">
+                <button type="submit" class="button">Save Course</button>
+                <p class="error">{{existStatus}}</p>
+                <p class="success">{{succeeded}}</p>
+            </div>
+        </form>
+    </div>
+    <footer>
+        <p>Where education meets convenience and innovation.</p>
+    </footer>
+</body>

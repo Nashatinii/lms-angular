@@ -1,0 +1,40 @@
+<body>
+  <app-navbar></app-navbar>
+  <div class="container">
+      <div class="combo">
+          <p class="title" *ngIf="currentCourses.value.length > 0">Current Courses</p>
+          <p class="title" *ngIf="currentCourses.value.length == 0">No Courses</p>
+          <button type="button" class="createCourse" [routerLink]="['/managecourses/createCourse']">Create Course</button>
+      </div>
+      
+      <div *ngIf="currentCourses.value.length > 0; else noCourses" class="courses">
+        <div style="font-weight: bold;padding-left: 0px;display: grid; grid-template-columns:  1fr 1.5fr 1fr 1fr 1fr; color : #3149e3">
+          <p style="margin-left: 7%;">Course</p>
+          <p style="text-align: center;">Instructor</p>
+          <p style="margin-left: -5%;">Archive Status</p>
+          <p></p>
+          <p></p>
+        </div>
+          <div *ngFor="let course of (currentCourses|async)">
+              <div class="courseCard">
+                <p class="courseName">{{ course.name }}</p>
+                <p>{{ course.instructor }}</p>
+                <p *ngIf="course.archived" style="color: #f44336;">Archived</p>
+                <p *ngIf="!course.archived" style="color: #4caf50;">&nbsp;&nbsp;Active</p>
+                <button  [routerLink]="['/managecourses/editCourse', course.name]">Edit</button>
+                <button *ngIf="course.archived" (click)="onClickArchive(course.name,false)">Unarchive</button>
+                <button *ngIf="!course.archived" (click)="onClickArchive(course.name , true)">Archive</button>
+                
+              </div>
+          </div>
+      </div>
+  </div>
+</body>
+
+<ng-template #noCourses>
+  <p class="noCourses">No courses.</p>
+</ng-template>
+
+<!-- <footer>
+    <p>Where education meets convenience and innovation.</p>
+   </footer> -->

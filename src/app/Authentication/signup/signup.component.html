@@ -1,0 +1,49 @@
+<body>
+    <div class="container">
+        <div class="left">
+            <h1 class="logo">El<span>earn</span></h1>
+            <h1 class="label">Sign Up</h1>
+            <h3> Welcome Onboard! Please enter your details</h3>
+            <form [formGroup]="SignUpForm" (ngSubmit)="onSubmit()">
+                <div class="inputbox">
+                    <input type="name" id="name" formControlName="name" placeholder="Enter Your Name." (focus)="onInputFocus()"/>
+                    <!-- <div *ngIf="nameProblem"> -->
+                        <p *ngIf="SignUpForm.get('name')?.errors?.['required'] && submit">Name is required</p>
+                    <!-- </div> -->
+                </div>
+                <div class="inputbox">
+                    <input type="email" id="mail" formControlName="email" placeholder="Enter Your Email." (focus)="onInputFocus()"/>
+                    <!-- <div *ngIf="emailProblem"> -->
+                        <p *ngIf="SignUpForm.get('email')?.errors?.['required'] && submit">Email is required</p>
+                        <p *ngIf="SignUpForm.get('email')?.errors?.['email'] && submit">Invalid Email Format</p>
+                        <p *ngIf="mailExist">Email is already exist</p>
+                    <!-- </div> -->
+                </div>
+                <div class="inputbox">
+                    <input type="password" id="password" formControlName="password" placeholder="Enter Your Password." (focus)="onInputFocus()"/>
+                    <!-- <div *ngIf="passwordProblem"> -->
+                        <p *ngIf="SignUpForm.get('password')?.errors?.['required'] && submit">Password is required</p>
+                        <p *ngIf="SignUpForm.get('password')?.errors?.['minlength'] && submit">Password must be at least 8 characters</p>
+                    <!-- </div> -->
+                </div>
+                <div class="inputbox">
+                    <select id="role" formControlName="role" placeholder="Select Your Role" (focus)="onInputFocus()">
+                        <option value="" disabled selected>Select Your Role</option>
+                        <option value="student">Student</option>
+                        <option value="instructor">Instructor</option>
+                    </select>
+                    <!-- <div *ngIf="roleProblem"> -->
+                        <p *ngIf="SignUpForm.get('role')?.errors?.['required'] && submit">Role is required</p>
+                    <!-- </div> -->
+                </div>
+                <button type="submit" class="button">Sign Up</button> 
+            </form>            
+            <p class="toLogin">Already have an account? <span [routerLink]="'/login'" style="cursor: pointer; color: #3149e3;">Log in</span></p>
+            <p  *ngIf="registered" class="requestSent" style ="color:green; font-size: 20px;">Request sent to admin for approval ✅</p>
+        </div>
+        <div class="right">
+            <img src="elearn.jpg" alt="Login Image">
+        </div>
+    </div>
+
+</body>

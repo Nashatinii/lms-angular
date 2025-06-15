@@ -1,0 +1,131 @@
+*{
+  overflow: hidden;
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif; 
+  overflow-y: hidden;
+  overflow-x: hidden;
+}
+
+body{
+  background-color: #fff !important;
+  height: 97vh;  
+}
+
+.container {
+  display: flex;
+}
+
+.right {
+  flex: 1;
+  /* margin-top: -5%; */
+  /* margin-right: -16px; */
+  /* transform: scale(1.1);  */
+  /* background-color: #252525; */
+  /* display: grid; */
+  /* place-items: top;  */
+  /* height: 100vh; */
+  overflow-x: hidden;
+  max-width: 100%;
+}
+
+.right img { /* picture */
+ 
+  transform: scale(1.15); 
+  max-width: 100%; 
+  /* object-fit: cover;  */
+}
+
+.logo{ /* Elearn */
+  color : #3149e3;
+  margin-top: 3.5%;
+}
+
+h1{ /* Sign Up , Elearn*/
+  font-size: 35px;
+}
+
+.label { /* Sign Up */
+  color: #252525;
+  font-weight:bold; 
+  /* margin: -7px; */
+}
+
+.logo span{ /* earn */
+  font-weight: lighter;
+}
+
+p{ /* form errors */
+  /* margin-top: 2px; */
+  color: #f44336;
+  font-size: 14px;
+  text-align: center;
+  /* margin-bottom: -5px; */
+
+}
+h3 , .toLogin{ /* welcome , already have account */
+  color : #6e6e6e;
+  font-size: 16px;
+  font-weight: lighter;
+  /* margin: 5px; */
+}
+
+span{ /* login */
+  font-weight: bold;
+}
+
+label{ /* name , email , password , role */
+  color : #6e6e6e;
+  font-size: 16px;
+  font-weight: bold;
+  /* margin-bottom: 5px; */
+}
+
+.left {
+  flex: 1;
+  /* margin-top: 21%; */
+  gap: 15px;
+  background-color: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+form {
+  width: 100%;
+  max-width: 400px; 
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+#name , #mail , #password , #role{ /* inputs */
+  /* margin-top: 3px; */
+  /* margin-bottom: 3px;  */
+  padding: 10px;
+  width: 100%;
+  border: 2px solid #ccc !important; 
+  box-shadow: none !important; 
+  outline: none !important; 
+  border-radius: 10px;
+  color: #333;
+  font-size: 14px;
+}
+
+button {
+  width: 100%;
+  padding: 10px;
+  /* background: linear-gradient(200deg, #fff0f5, #c7f6fe); */
+  background-color: #3149e3;
+  border-radius: 10px;
+  color: white;
+  border: none;
+  cursor: pointer;
+  margin-top: 2.5%;
+}
+
+button:hover {
+  background-color: #2a3cc3;
+}

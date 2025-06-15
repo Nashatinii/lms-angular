@@ -1,0 +1,141 @@
+/* General Body Styling */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+    background-color: #f8f9ff;
+    color: #333;
+  }
+  
+  /* Container Styling */
+  .container {
+    max-width: 800px;
+    margin: 30px auto;
+    padding: 20px;
+    background: #fff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+  }
+  
+  /* Header Styling */
+  h1 {
+    color: #3149e3;
+    font-size: 2.3rem;
+    margin-bottom: 15px;
+    text-align: center;
+    font-weight: 600;
+  }
+  
+  .no{
+    text-align: center;
+  }
+
+  /* Materials List Styling */
+  .material-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .material-item {
+    background: #f1f1f1;
+    border-radius: 8px;
+    padding: 15px;
+    /* height: 100px; */
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .material-item h3 {
+    color: #3149e3;
+    /* margin-bottom: 10px; */
+    font-size: 1.2rem;
+    font-weight: 500;
+  }
+  
+  .material-type, .material-description {
+    margin-left: 20px;
+    /* font-size: 1rem; */
+    color: #555;
+  }
+  
+  .material-link , button{
+    display: inline-block;
+    margin-left: 20px;
+    padding: 8px 15px;
+    font-weight: bold;
+    color: #3149e3;
+    text-decoration: none;
+    border: 2px solid #3149e3;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+  }
+  
+  .material-link:hover , button:hover{
+    cursor: pointer;
+    background-color: #3149e3;
+    color: #fff;
+  }
+  
+  .material-link:active {
+    transform: scale(0.98);
+  }
+  
+  /* Error Message Styling */
+  /* .error-message {
+    background-color: #f8d7da;
+    color: #721c24;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    text-align: center;
+  } */
+/*   
+  .error-message p {
+    margin: 0;
+    font-size: 1.1rem;
+  }
+   */
+  /* No Materials Message Styling */
+  ng-template#noMaterials {
+    text-align: center;
+    font-size: 1.2rem;
+    color: #777;
+    margin-top: 30px;
+  }
+  
+  /* Button Styling (Optional if you want to add any buttons) */
+  .button-container {
+    text-align: center;
+    /* margin-top: 40px; */
+  }
+  
+  .button {
+    background-color: #3149e3;
+    color: white;
+    padding: 12px 25px;
+    border-radius: 25px;
+    border: none;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .button:hover {
+    background-color: #1f37b5;
+  }
+  
+  .button:active {
+    transform: scale(0.98);
+  }
+
+  .button-container {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;  /* Adds space between the buttons */
+  }
+  
+  .button-container button,
+  .button-container .material-link {
+    margin-left: 10px; /* Optional: Adds space between buttons if needed */
+  }
+  

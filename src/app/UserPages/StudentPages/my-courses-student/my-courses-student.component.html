@@ -1,0 +1,33 @@
+<body>
+    <app-nav-bar-student></app-nav-bar-student>
+    <div class="container">
+        <!-- <div class="header">
+            <div class="square">
+                <img src="books.png" alt="Books">
+            </div>
+            <p class="absolute-text">Your Courses...</p>
+        </div> -->
+        <div class="combo">
+            <p class="title" *ngIf="courses.length > 0">Current Courses</p>
+            <p class="title" *ngIf="courses.length == 0">No Courses</p>
+        </div>
+        
+        <div *ngIf="studentCourses.length > 0; " class="courses">
+            <div *ngFor="let course of courses">
+                <div *ngIf="!course.archived" class="courseCard">
+                    <p class="courseName">{{ course.name }}</p>
+                    <button [routerLink]="['/coursePage',course.name]">View Course</button>
+                </div>
+            </div>
+        </div>
+    </div>
+  </body>
+  
+  <!-- <ng-template #noCourses>
+    <p class="noCourses">No courses.</p>
+  </ng-template> -->
+  
+  <!-- <footer>
+      <p>Where education meets convenience and innovation.</p>
+     </footer> -->
+  

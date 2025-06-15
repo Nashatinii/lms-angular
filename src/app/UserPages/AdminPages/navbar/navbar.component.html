@@ -1,0 +1,12 @@
+<nav class="navbar">
+  <p class="logo">
+    E<span>learn</span>
+  </p>
+  <ul class="navbar-list">
+    <li [routerLink]="'/requests'" routerLinkActive="active"> Requests </li>
+      <li [routerLink]="'/manageusers'" routerLinkActive="active"> Manage Users </li>
+      <li [routerLink]="'/managecourses'" routerLinkActive="active"> Manage Courses</li>
+      <li [routerLink]="'/assignStudent'" routerLinkActive="active">Assign Students</li>
+  </ul>
+  <p class="logout" (click)="onClickLogOut()">Log out</p>
+</nav> 

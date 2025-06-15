@@ -1,0 +1,40 @@
+<body>
+    <app-navbar></app-navbar>
+    <div class="container">
+        <h1>Edit Course</h1>
+        <form [formGroup]="courseForm" (ngSubmit)="onSubmit()">
+            <div class="courseDetails"> 
+                <div>
+                    <label for="insName">Instructor Name</label>
+                    <br/>
+                    <input type="text" id="insName" formControlName="insName" placeholder="Enter Instructor Name." />
+                    <p class="error" *ngIf="courseForm.get('insName')?.errors?.['required'] && submit">Instructor Name is required</p>
+                </div>
+                <div>
+                    <label for="courseName">Course Name</label>
+                    <br/>
+                    <input type="text" id="courseName" formControlName="courseName" placeholder="Enter Course Name."/>
+                    <p class="error" *ngIf="courseForm.get('courseName')?.errors?.['required'] && submit">Course Name is required</p>
+                </div>
+                <div>
+                    <label for="courseId">Course ID</label>
+                    <br/>
+                    <input type="text" id="courseId" formControlName="courseId" placeholder="Enter Course ID."  />
+                    <p class="error" *ngIf="courseForm.get('courseId')?.errors?.['required'] && submit">Course ID is required</p>
+                </div>
+                <div>
+                    <label for="courseDescription">Course Description</label>
+                    <br/>
+                    <textarea id="courseDescription" formControlName="courseDescription" placeholder="Description...">
+                    </textarea>
+                    <p class="error" *ngIf="courseForm.get('courseDescription')?.errors?.['required'] && submit">Description is required</p>
+                </div>
+            </div>
+            <div class="button2">
+                <button type="submit" class="button">Save Changes</button>
+                <p class="error">{{existStatus}}</p>
+                <p class="error" style="color:green !important;font-size: 20px;">{{succeeded}}</p>
+            </div> 
+        </form>
+    </div>
+</body>

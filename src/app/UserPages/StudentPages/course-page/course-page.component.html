@@ -1,0 +1,46 @@
+<body>
+  <app-nav-bar-student></app-nav-bar-student>
+  <div class="container">
+    
+    <h2>Materials for {{ courseName }}</h2>
+    
+    <!-- Error Message -->
+    <div *ngIf="errorMessage" class="error-message">
+      <p>{{ errorMessage }}</p>
+    </div>
+    
+    <!-- Materials List -->
+    <div *ngIf="materials.length > 0; else noMaterials">
+      <div class="material-list">
+        <div *ngFor="let material of materials" class="material-item">
+          <!-- <div class="done-checkbox">
+            <input type="checkbox" [(ngModel)]="material.done" />
+            <label class="done-label">Done</label>
+          </div> -->
+          <h3>{{ material.title }}</h3>
+          <div class="materialData" >
+            <div>
+              <p class="material-type"><strong>Type:</strong> {{ material.type }}</p>
+              <p class="material-description"><strong>Description:</strong> {{ material.description || 'No description provided' }}</p>
+              <div >
+                <a *ngIf="material.type!='video'" class="material-link" href="{{material.url}}">Open Link</a>
+                <a *ngIf="material.type=='video'" class="material-link"[routerLink]="['/video',material.url,courseName,material.title]">Open Video</a>
+                <a style="margin-left: 30px;" *ngIf="material.type!='video' && material.type=='assignment'" (click)="onSubmit()" class="material-link" >Submit Assignment</a>
+              </div>
+              <form *ngIf="submit&&material.type=='assignment'" [formGroup]="assignmentSubmission">
+                <input type="text" id="submittedUrl" formControlName="submittedUrl" placeholder="Solved Assignment URL." />
+                <p class="error" *ngIf=" submit2 && assignmentSubmission.get('submittedUrl')?.errors?.['required']">Assignment link is required</p>
+                <p class="error" *ngIf="submit2 && assignmentSubmission.get('submittedUrl')?.errors?.['pattern']">Assignment link is invalid</p>
+                <button class="ass" (click)="submitAssignment(material.title)">Submit</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- No Materials Message -->
+    <ng-template #noMaterials>
+      <p class="no">No materials available for this course.</p>
+    </ng-template>
+  </div>
+</body>

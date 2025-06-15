@@ -1,0 +1,30 @@
+<body>
+  <app-navbar></app-navbar>
+  <div class="container">
+      <div class="combo">
+          <p class="title" *ngIf="currentUsers.length > 1">Current Users</p>
+          <p class="title" *ngIf="currentUsers.length == 1">No Users</p>
+          <!-- <button type="button" class="createCourse" [routerLink]="'/insCreateCourse'">Create Course</button> -->
+      </div>
+      
+      <div *ngIf="currentUsers.length > 0" class="users">
+          <div *ngFor="let user of currentUsers">
+              <div class="userCard" *ngIf="user.role!='Admin'">
+                <p class="name">{{ user.name }}</p>
+                <p>{{ user.email }}</p>
+                <p>{{ user.role }}</p>
+                <p *ngIf="user.activated" style ="color:green">Active</p>
+                <p *ngIf="!user.activated" style ="color:red">Inactive</p>
+                <button *ngIf="user.activated && user.role !== 'admin' " (click)="onClickActivation(user.email,false)">Deactivate</button>
+                <button *ngIf="!user.activated" (click)="onClickActivation(user.email , true)">Activate</button>
+                <button *ngIf="user.role !== 'admin' " (click)="onClickDelete(user.email)">Delete</button>
+              </div>
+          </div>
+      </div>
+  </div>
+</body>
+
+
+<!-- <footer>
+    <p>Where education meets convenience and innovation.</p>
+   </footer> -->

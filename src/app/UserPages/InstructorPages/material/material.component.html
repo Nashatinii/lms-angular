@@ -1,0 +1,32 @@
+<body>
+  <app-navbar-ins></app-navbar-ins>
+  <div class="container">
+    <h1>Upload Material for {{ courseName }}</h1>
+  
+    <form [formGroup]="materialForm" (ngSubmit)="onSubmit()">
+      <label for="type">Material Type</label>
+      <select id="type" formControlName="type">
+        <option value="" disabled>Select Material Type</option>
+        <option value="lecture">Lecture</option>
+        <option value="video">Video</option>
+        <option value="assignment">Assignment</option>
+      </select>
+      <p class="error" *ngIf="materialForm.get('type')?.errors?.['required'] && submit">Type is required</p>
+
+      <label>Material Title</label>
+      <input type="text" formControlName="title" placeholder="Enter Material Title" />
+      <p class="error" *ngIf="materialForm.get('title')?.errors?.['required'] && submit">Title is required</p>
+
+      <label>Material URL</label>
+      <input type="text" formControlName="url" placeholder="Enter Material URL" />
+      <p class="error" *ngIf="materialForm.get('url')?.errors?.['required'] && submit">URL is required</p>
+      <p class="error" *ngIf="materialForm.get('url')?.errors?.['pattern'] && submit">URL is invalid</p>
+
+      <label>Description (optional)</label>
+      <textarea formControlName="description" placeholder="Enter Description"></textarea>
+  
+      <button type="submit" class="button" >Upload</button>
+    </form>
+  </div>
+  
+</body>
